@@ -274,8 +274,7 @@ COUNT(owner_id)
 
 ### `GROUP BY`
 
-Lastly, we'll talk about the handy aggregate function `GROUP BY`. Like its name
-suggests, it groups your results by a given column.
+Lastly, we'll talk about the handy aggregate function `GROUP BY`. Like its name suggests, it groups your results by a given column.
 
 Let's take our table of cats
 
