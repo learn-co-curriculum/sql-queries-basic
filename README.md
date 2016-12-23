@@ -68,9 +68,9 @@ Let's add some cats to our `cats` table to make this more interesting:
 ```sql
 sqlite> INSERT INTO cats (name, age, breed, owner_id) VALUES ("Maru", 3 , "Scottish Fold", 1);
 sqlite> INSERT INTO cats (name, age, breed, owner_id) VALUES ("Hana", 1 , "Tabby", 1);
-sqlite> INSERT INTO cats (name, age, breed) VALUES ("Lil\' Bub", 5, "American Shorthair");
-sqlite> INSERT INTO cats (name, age, breed) VALUES ("Moe", 10, "Tabby");
-sqlite> INSERT INTO cats (name, age, breed) VALUES ("Patches", 2, "Calico");
+sqlite> INSERT INTO cats (name, age, breed) VALUES ("Lil\' Bub", 5, "American Shorthair",1);
+sqlite> INSERT INTO cats (name, age, breed) VALUES ("Moe", 10, "Tabby",1);
+sqlite> INSERT INTO cats (name, age, breed) VALUES ("Patches", 2, "Calico",1);
 ```
 
 Let's check out our `cats` table now:
@@ -84,9 +84,9 @@ This should return:
 ```bash
 1|Maru|3|Scottish Fold|1
 2|Hana|1|Tabby|1
-3|Lil\' Bub|5|American Shorthair|
-4|Moe|10|Tabby|
-5|Patches|2|Calico|
+3|Lil\' Bub|5|American Shorthair|1
+4|Moe|10|Tabby|1
+5|Patches|2|Calico|1
 ```
 
 **Top-Tip:** You can format the output of your select statements with a few helpful options:
@@ -106,9 +106,9 @@ id          name        age         breed          owner_id
 ----------  ----------  ----------  -------------  ----------
 1           Maru        3           Scottish Fold  1         
 2           Hana        1           Tabby          1         
-3           Lil\' Bub   5           American Shor            
-4           Moe         10          Tabby                    
-5           Patches     2           Calico                   
+3           Lil\' Bub   5           American Shor  1          
+4           Moe         10          Tabby       1             
+5           Patches     2           Calico      1             
 ```
 
 Much better.
@@ -134,10 +134,10 @@ This should return the following:
 id          name        age         breed       owner_id  
 ----------  ----------  ----------  ----------  ----------
 2           Hana        1           Tabby       1         
-5           Patches     2           Calico                
+5           Patches     2           Calico       1         
 1           Maru        3           Scottish F  1         
-3           Lil\' Bub   5           American S            
-4           Moe         10          Tabby                 
+3           Lil\' Bub   5           American S   1         
+4           Moe         10          Tabby         1        
 ```
 When using `ORDER BY`, the default is to order in ascending order. If we want to specify though, we can use `ASC` for "ascending" or `DESC` for "descending." Let's try to select all of our cats and sort them by age in descending order.
 
@@ -150,10 +150,10 @@ This should return
 ```bash
 id          name        age         breed       owner_id  
 ----------  ----------  ----------  ----------  ----------
-4           Moe         10          Tabby                 
-3           Lil\' Bub   5           American S            
+4           Moe         10          Tabby             1    
+3           Lil\' Bub   5           American S    1        
 1           Maru        3           Scottish F  1         
-5           Patches     2           Calico                
+5           Patches     2           Calico       1         
 2           Hana        1           Tabby       1         
 ```
 
@@ -174,7 +174,7 @@ Execute the above statement in your terminal and you should see:
 ```bash
 id          name        age         breed       owner_id  
 ----------  ----------  ----------  ----------  ----------
-4           Moe         10          Tabby                 
+4           Moe         10          Tabby          1       
 ```
 Let's get the two oldest cats:
 
@@ -187,8 +187,8 @@ Execute that statement and you should see:
 ```bash
 id          name        age         breed       owner_id  
 ----------  ----------  ----------  ----------  ----------
-4           Moe         10          Tabby                 
-3           Lil\' Bub   5           American S            
+4           Moe         10          Tabby          1       
+3           Lil\' Bub   5           American S     1       
 ```
 
 ### `BETWEEN`
@@ -219,7 +219,7 @@ Let's say the administrator of our Pets Database has found a new cat. This kitty
 Let's insert our new cat into the database. Our abandoned kitty has a breed, but no name or age as of yet:
 
 ```sql
-INSERT INTO cats (name, age, breed) VALUES (NULL, NULL, "Tabby");
+INSERT INTO cats (name, age, breed) VALUES (NULL, NULL, "Tabby", NULL);
 ```
 
 Now, if we look at our `cats` data with `SELECT * FROM cats;`, we should see:
@@ -229,9 +229,9 @@ id          name        age         breed          owner_id
 ----------  ----------  ----------  -------------  ----------
 1           Maru        3           Scottish Fold  1         
 2           Hana        1           Tabby          1         
-3           Lil\' Bub   5           American Shor            
-4           Moe         10          Tabby                    
-5           Patches     2           Calico                   
+3           Lil\' Bub   5           American Shor  1          
+4           Moe         10          Tabby              1      
+5           Patches     2           Calico            1       
 6                                   Tabby                    
 ```
 
