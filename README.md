@@ -269,7 +269,7 @@ This should return:
 ```bash
 COUNT(owner_id)
 ---------------
-2              
+5             
 ```
 
 
@@ -285,9 +285,9 @@ id          name        age         breed          owner_id
 ----------  ----------  ----------  -------------  ----------
 1           Maru        3           Scottish Fold  1         
 2           Hana        1           Tabby          1         
-3           Lil\' Bub   5           American Shor            
-4           Moe         10          Tabby                    
-5           Patches     2           Calico                   
+3           Lil\' Bub   5           American Shor   1         
+4           Moe         10          Tabby             1       
+5           Patches     2           Calico             1      
 6                                   Tabby                    
 ```
 
@@ -321,11 +321,11 @@ SELECT breed, owner_id, COUNT(breed) FROM cats GROUP BY breed, owner_id;
 ``` bash
 breed               owner_id    COUNT(breed)
 ------------------  ----------  ------------
-American Shorthair              1           
-Calico                          1           
+American Shorthair              1   1        
+Calico                          1       1    
 Scottish Fold       1           1           
-Tabby                           2           
-Tabby               1           1           
+Tabby                           1          
+Tabby               1           2           
 ```
 
 
@@ -368,7 +368,7 @@ CREATE TABLE dogs (
 ```
 
 ```sql
-sqlite> INSERT INTO dogs (name) VALUES ("Clifford");
+sqlite> INSERT INTO dogs (name) VALUES (NULL, "Clifford");
 ```
 
 
