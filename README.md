@@ -84,9 +84,9 @@ This should return:
 ```bash
 1|Maru|3|Scottish Fold|1
 2|Hana|1|Tabby|1
-3|Lil\' Bub|5|American Shorthair|
-4|Moe|10|Tabby|
-5|Patches|2|Calico|
+3|Lil\' Bub|5|American Shorthair|1
+4|Moe|10|Tabby|1
+5|Patches|2|Calico|1
 ```
 
 **Top-Tip:** You can format the output of your select statements with a few helpful options:
