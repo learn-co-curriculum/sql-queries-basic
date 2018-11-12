@@ -61,9 +61,9 @@ CREATE TABLE cats (
 );
 ```
 
-Good work. Let's type `ls` in the terminal and see what just happened. A new file should appear called `pets_database.db`! This is the binary representation of the database. You can think of this like a .jpg file. It won't open up in a text editor, but it does open up in the image viewer app. It is the same way for .db files. They won't open in your editor, but they can be read by the appropriate database engine.
+Good work. Let's `.quit` out of sqlite3 and enter `ls` into the terminal to see what just happened. A new file called `pets_database.db` should have appeared in the folder you're currently in! This is the binary representation of the database. You can think of this like a .jpg file. It won't open up in a text editor, but it does open up in the image viewer app. It is the same way for .db files. They won't open in your editor, but they can be read by the appropriate database engine.
 
-Let's add some cats to our `cats` table to make this more interesting:
+Now let's add some cats to our `cats` table to make this more interesting! Enter `sqlite3 pets_database.db` into the terminal again to get back into sqlite and access the database we just created. Then type:
 
 ```sql
 sqlite> INSERT INTO cats (name, age, breed, owner_id) VALUES ("Maru", 3 , "Scottish Fold", 1);
