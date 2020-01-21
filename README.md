@@ -356,7 +356,7 @@ Patches
           
 ```
 
-SQLite allows us to explicitly state the tableName.columnName we want to select. This is particularly useful when we want data from two different tables.
+SQLite allows us to explicitly state the `table_name.column_name` we want to select. This is particularly useful when we want data from two different tables.
 
 Imagine we have another table called `dogs` with a column for the dog names:
 
@@ -375,7 +375,7 @@ sqlite> INSERT INTO dogs (name) VALUES ("Clifford");
 If we want to get the names of all the dogs and cats, we can no longer run a query with just the column name.
 `SELECT name FROM cats,dogs;` will return `Error: ambiguous column name: name`.
 
-Instead, we must explicitly follow the tableName.columnName syntax.
+Instead, we must explicitly follow the `table_name.column_name` syntax.
 ```sql
 SELECT cats.name, dogs.name FROM cats, dogs;
 ```
